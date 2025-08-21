@@ -2,6 +2,7 @@
 -- All tables for Financial Modeling Prep API data
 
 -- Create schema
+-- Create FMP schema if it doesn't exist
 CREATE SCHEMA IF NOT EXISTS fmp;
 
 -- Set search path

@@ -2,18 +2,18 @@
 -- Phase 2: Market & Analyst Data
 
 -- Company Executives
-CREATE TABLE IF NOT EXISTS public.executives (
+CREATE TABLE IF NOT EXISTS fmp.executives (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     name VARCHAR(255),
     title VARCHAR(255),
     year_born INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Financial Growth Metrics
-CREATE TABLE IF NOT EXISTS public.financial_growth (
+CREATE TABLE IF NOT EXISTS fmp.financial_growth (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -54,11 +54,11 @@ CREATE TABLE IF NOT EXISTS public.financial_growth (
     sga_expenses_growth DECIMAL(12, 4),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date, period),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Enterprise Values
-CREATE TABLE IF NOT EXISTS public.enterprise_values (
+CREATE TABLE IF NOT EXISTS fmp.enterprise_values (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -70,11 +70,11 @@ CREATE TABLE IF NOT EXISTS public.enterprise_values (
     enterprise_value BIGINT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Real-time Quotes
-CREATE TABLE IF NOT EXISTS public.real_time_quotes (
+CREATE TABLE IF NOT EXISTS fmp.real_time_quotes (
     symbol VARCHAR(10) PRIMARY KEY,
     price DECIMAL(12, 4),
     change_percentage DECIMAL(8, 4),
@@ -97,11 +97,11 @@ CREATE TABLE IF NOT EXISTS public.real_time_quotes (
     shares_outstanding BIGINT,
     timestamp TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Intraday Prices
-CREATE TABLE IF NOT EXISTS public.intraday_prices (
+CREATE TABLE IF NOT EXISTS fmp.intraday_prices (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date TIMESTAMP NOT NULL,
@@ -113,11 +113,11 @@ CREATE TABLE IF NOT EXISTS public.intraday_prices (
     interval VARCHAR(10),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date, interval),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Dividends
-CREATE TABLE IF NOT EXISTS public.dividends (
+CREATE TABLE IF NOT EXISTS fmp.dividends (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -129,11 +129,11 @@ CREATE TABLE IF NOT EXISTS public.dividends (
     declaration_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Stock Splits
-CREATE TABLE IF NOT EXISTS public.stock_splits (
+CREATE TABLE IF NOT EXISTS fmp.stock_splits (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -142,11 +142,11 @@ CREATE TABLE IF NOT EXISTS public.stock_splits (
     denominator INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Analyst Estimates
-CREATE TABLE IF NOT EXISTS public.analyst_estimates (
+CREATE TABLE IF NOT EXISTS fmp.analyst_estimates (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -172,11 +172,11 @@ CREATE TABLE IF NOT EXISTS public.analyst_estimates (
     number_analysts_estimated_eps INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Price Targets
-CREATE TABLE IF NOT EXISTS public.price_targets (
+CREATE TABLE IF NOT EXISTS fmp.price_targets (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     published_date DATE,
@@ -190,11 +190,11 @@ CREATE TABLE IF NOT EXISTS public.price_targets (
     news_publisher VARCHAR(255),
     news_base_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Stock Grades
-CREATE TABLE IF NOT EXISTS public.stock_grades (
+CREATE TABLE IF NOT EXISTS fmp.stock_grades (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -202,11 +202,11 @@ CREATE TABLE IF NOT EXISTS public.stock_grades (
     previous_grade VARCHAR(50),
     new_grade VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Earnings Surprises
-CREATE TABLE IF NOT EXISTS public.earnings_surprises (
+CREATE TABLE IF NOT EXISTS fmp.earnings_surprises (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -214,11 +214,11 @@ CREATE TABLE IF NOT EXISTS public.earnings_surprises (
     estimated_earnings DECIMAL(10, 4),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Institutional Holders
-CREATE TABLE IF NOT EXISTS public.institutional_holders (
+CREATE TABLE IF NOT EXISTS fmp.institutional_holders (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     holder VARCHAR(255),
@@ -227,11 +227,11 @@ CREATE TABLE IF NOT EXISTS public.institutional_holders (
     change BIGINT,
     change_percentage DECIMAL(8, 4),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Insider Trading
-CREATE TABLE IF NOT EXISTS public.insider_trading (
+CREATE TABLE IF NOT EXISTS fmp.insider_trading (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     filing_date DATE,
@@ -245,11 +245,11 @@ CREATE TABLE IF NOT EXISTS public.insider_trading (
     security_name VARCHAR(255),
     link VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- SEC Filings
-CREATE TABLE IF NOT EXISTS public.sec_filings (
+CREATE TABLE IF NOT EXISTS fmp.sec_filings (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     filing_date DATE,
@@ -259,13 +259,13 @@ CREATE TABLE IF NOT EXISTS public.sec_filings (
     link VARCHAR(500),
     final_link VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Phase 3: ETF and Index Data
 
 -- ETF Holdings
-CREATE TABLE IF NOT EXISTS public.etf_holdings (
+CREATE TABLE IF NOT EXISTS fmp.etf_holdings (
     id SERIAL PRIMARY KEY,
     etf_symbol VARCHAR(10) NOT NULL,
     asset VARCHAR(255),
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS public.etf_holdings (
 );
 
 -- ETF Sector Weights
-CREATE TABLE IF NOT EXISTS public.etf_sector_weights (
+CREATE TABLE IF NOT EXISTS fmp.etf_sector_weights (
     id SERIAL PRIMARY KEY,
     etf_symbol VARCHAR(10) NOT NULL,
     sector VARCHAR(100),
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS public.etf_sector_weights (
 );
 
 -- ETF Country Weights
-CREATE TABLE IF NOT EXISTS public.etf_country_weights (
+CREATE TABLE IF NOT EXISTS fmp.etf_country_weights (
     id SERIAL PRIMARY KEY,
     etf_symbol VARCHAR(10) NOT NULL,
     country VARCHAR(100),
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS public.etf_country_weights (
 );
 
 -- Market Indexes
-CREATE TABLE IF NOT EXISTS public.market_indexes (
+CREATE TABLE IF NOT EXISTS fmp.market_indexes (
     symbol VARCHAR(50) PRIMARY KEY,
     name VARCHAR(255),
     price DECIMAL(12, 4),
@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS public.market_indexes (
 );
 
 -- Index Historical Prices
-CREATE TABLE IF NOT EXISTS public.index_prices (
+CREATE TABLE IF NOT EXISTS fmp.index_prices (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(50) NOT NULL,
     date DATE NOT NULL,
@@ -322,7 +322,7 @@ CREATE TABLE IF NOT EXISTS public.index_prices (
 );
 
 -- Economic Calendar
-CREATE TABLE IF NOT EXISTS public.economic_calendar (
+CREATE TABLE IF NOT EXISTS fmp.economic_calendar (
     id SERIAL PRIMARY KEY,
     event VARCHAR(255),
     date TIMESTAMP,
@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS public.economic_calendar (
 );
 
 -- Treasury Rates
-CREATE TABLE IF NOT EXISTS public.treasury_rates (
+CREATE TABLE IF NOT EXISTS fmp.treasury_rates (
     id SERIAL PRIMARY KEY,
     date DATE NOT NULL,
     month_1 DECIMAL(8, 4),
@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS public.treasury_rates (
 -- Phase 4: Alternative Assets
 
 -- Cryptocurrency Quotes
-CREATE TABLE IF NOT EXISTS public.crypto_quotes (
+CREATE TABLE IF NOT EXISTS fmp.crypto_quotes (
     symbol VARCHAR(20) PRIMARY KEY,
     name VARCHAR(100),
     price DECIMAL(20, 8),
@@ -374,7 +374,7 @@ CREATE TABLE IF NOT EXISTS public.crypto_quotes (
 );
 
 -- Cryptocurrency Historical Prices
-CREATE TABLE IF NOT EXISTS public.crypto_prices (
+CREATE TABLE IF NOT EXISTS fmp.crypto_prices (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(20) NOT NULL,
     date TIMESTAMP NOT NULL,
@@ -389,7 +389,7 @@ CREATE TABLE IF NOT EXISTS public.crypto_prices (
 );
 
 -- Forex Quotes
-CREATE TABLE IF NOT EXISTS public.forex_quotes (
+CREATE TABLE IF NOT EXISTS fmp.forex_quotes (
     ticker VARCHAR(10) PRIMARY KEY,
     bid DECIMAL(20, 8),
     ask DECIMAL(20, 8),
@@ -402,7 +402,7 @@ CREATE TABLE IF NOT EXISTS public.forex_quotes (
 );
 
 -- Forex Historical Prices
-CREATE TABLE IF NOT EXISTS public.forex_prices (
+CREATE TABLE IF NOT EXISTS fmp.forex_prices (
     id SERIAL PRIMARY KEY,
     ticker VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS public.forex_prices (
 );
 
 -- Commodity Quotes
-CREATE TABLE IF NOT EXISTS public.commodity_quotes (
+CREATE TABLE IF NOT EXISTS fmp.commodity_quotes (
     symbol VARCHAR(20) PRIMARY KEY,
     name VARCHAR(100),
     price DECIMAL(20, 8),
@@ -434,7 +434,7 @@ CREATE TABLE IF NOT EXISTS public.commodity_quotes (
 );
 
 -- Commodity Historical Prices
-CREATE TABLE IF NOT EXISTS public.commodity_prices (
+CREATE TABLE IF NOT EXISTS fmp.commodity_prices (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(20) NOT NULL,
     date DATE NOT NULL,
@@ -450,18 +450,18 @@ CREATE TABLE IF NOT EXISTS public.commodity_prices (
 -- Phase 5: Additional Data
 
 -- Press Releases
-CREATE TABLE IF NOT EXISTS public.press_releases (
+CREATE TABLE IF NOT EXISTS fmp.press_releases (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date TIMESTAMP,
     title TEXT,
     text TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Social Sentiment
-CREATE TABLE IF NOT EXISTS public.social_sentiment (
+CREATE TABLE IF NOT EXISTS fmp.social_sentiment (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR(10) NOT NULL,
     date DATE NOT NULL,
@@ -472,11 +472,11 @@ CREATE TABLE IF NOT EXISTS public.social_sentiment (
     sentiment_score DECIMAL(8, 4),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(symbol, date),
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Symbols List
-CREATE TABLE IF NOT EXISTS public.symbols_list (
+CREATE TABLE IF NOT EXISTS fmp.symbols_list (
     symbol VARCHAR(10) PRIMARY KEY,
     name VARCHAR(255),
     price DECIMAL(12, 4),
@@ -487,7 +487,7 @@ CREATE TABLE IF NOT EXISTS public.symbols_list (
 );
 
 -- IPO Calendar
-CREATE TABLE IF NOT EXISTS public.ipo_calendar (
+CREATE TABLE IF NOT EXISTS fmp.ipo_calendar (
     id SERIAL PRIMARY KEY,
     date DATE,
     company VARCHAR(255),
@@ -501,7 +501,7 @@ CREATE TABLE IF NOT EXISTS public.ipo_calendar (
 );
 
 -- Split Calendar
-CREATE TABLE IF NOT EXISTS public.split_calendar (
+CREATE TABLE IF NOT EXISTS fmp.split_calendar (
     id SERIAL PRIMARY KEY,
     date DATE,
     label VARCHAR(100),
@@ -509,11 +509,11 @@ CREATE TABLE IF NOT EXISTS public.split_calendar (
     numerator INTEGER,
     denominator INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Dividend Calendar
-CREATE TABLE IF NOT EXISTS public.dividend_calendar (
+CREATE TABLE IF NOT EXISTS fmp.dividend_calendar (
     id SERIAL PRIMARY KEY,
     date DATE,
     label VARCHAR(100),
@@ -524,31 +524,31 @@ CREATE TABLE IF NOT EXISTS public.dividend_calendar (
     record_date DATE,
     payment_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (symbol) REFERENCES public.companies(symbol) ON DELETE CASCADE
+    FOREIGN KEY (symbol) REFERENCES fmp.companies(symbol) ON DELETE CASCADE
 );
 
 -- Create indexes for better performance
-CREATE INDEX IF NOT EXISTS idx_executives_symbol ON public.executives(symbol);
-CREATE INDEX IF NOT EXISTS idx_financial_growth_symbol_date ON public.financial_growth(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_enterprise_values_symbol_date ON public.enterprise_values(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_intraday_prices_symbol_date ON public.intraday_prices(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_dividends_symbol_date ON public.dividends(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_stock_splits_symbol_date ON public.stock_splits(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_analyst_estimates_symbol_date ON public.analyst_estimates(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_price_targets_symbol ON public.price_targets(symbol);
-CREATE INDEX IF NOT EXISTS idx_stock_grades_symbol ON public.stock_grades(symbol);
-CREATE INDEX IF NOT EXISTS idx_earnings_surprises_symbol_date ON public.earnings_surprises(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_institutional_holders_symbol ON public.institutional_holders(symbol);
-CREATE INDEX IF NOT EXISTS idx_insider_trading_symbol ON public.insider_trading(symbol);
-CREATE INDEX IF NOT EXISTS idx_insider_trading_transaction_date ON public.insider_trading(transaction_date);
-CREATE INDEX IF NOT EXISTS idx_sec_filings_symbol ON public.sec_filings(symbol);
-CREATE INDEX IF NOT EXISTS idx_sec_filings_type ON public.sec_filings(type);
-CREATE INDEX IF NOT EXISTS idx_etf_holdings_etf_symbol ON public.etf_holdings(etf_symbol);
-CREATE INDEX IF NOT EXISTS idx_index_prices_symbol_date ON public.index_prices(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_economic_calendar_date ON public.economic_calendar(date);
-CREATE INDEX IF NOT EXISTS idx_treasury_rates_date ON public.treasury_rates(date);
-CREATE INDEX IF NOT EXISTS idx_crypto_prices_symbol_date ON public.crypto_prices(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_forex_prices_ticker_date ON public.forex_prices(ticker, date);
-CREATE INDEX IF NOT EXISTS idx_commodity_prices_symbol_date ON public.commodity_prices(symbol, date);
-CREATE INDEX IF NOT EXISTS idx_press_releases_symbol ON public.press_releases(symbol);
-CREATE INDEX IF NOT EXISTS idx_social_sentiment_symbol_date ON public.social_sentiment(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_executives_symbol ON fmp.executives(symbol);
+CREATE INDEX IF NOT EXISTS idx_financial_growth_symbol_date ON fmp.financial_growth(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_enterprise_values_symbol_date ON fmp.enterprise_values(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_intraday_prices_symbol_date ON fmp.intraday_prices(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_dividends_symbol_date ON fmp.dividends(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_stock_splits_symbol_date ON fmp.stock_splits(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_analyst_estimates_symbol_date ON fmp.analyst_estimates(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_price_targets_symbol ON fmp.price_targets(symbol);
+CREATE INDEX IF NOT EXISTS idx_stock_grades_symbol ON fmp.stock_grades(symbol);
+CREATE INDEX IF NOT EXISTS idx_earnings_surprises_symbol_date ON fmp.earnings_surprises(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_institutional_holders_symbol ON fmp.institutional_holders(symbol);
+CREATE INDEX IF NOT EXISTS idx_insider_trading_symbol ON fmp.insider_trading(symbol);
+CREATE INDEX IF NOT EXISTS idx_insider_trading_transaction_date ON fmp.insider_trading(transaction_date);
+CREATE INDEX IF NOT EXISTS idx_sec_filings_symbol ON fmp.sec_filings(symbol);
+CREATE INDEX IF NOT EXISTS idx_sec_filings_type ON fmp.sec_filings(type);
+CREATE INDEX IF NOT EXISTS idx_etf_holdings_etf_symbol ON fmp.etf_holdings(etf_symbol);
+CREATE INDEX IF NOT EXISTS idx_index_prices_symbol_date ON fmp.index_prices(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_economic_calendar_date ON fmp.economic_calendar(date);
+CREATE INDEX IF NOT EXISTS idx_treasury_rates_date ON fmp.treasury_rates(date);
+CREATE INDEX IF NOT EXISTS idx_crypto_prices_symbol_date ON fmp.crypto_prices(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_forex_prices_ticker_date ON fmp.forex_prices(ticker, date);
+CREATE INDEX IF NOT EXISTS idx_commodity_prices_symbol_date ON fmp.commodity_prices(symbol, date);
+CREATE INDEX IF NOT EXISTS idx_press_releases_symbol ON fmp.press_releases(symbol);
+CREATE INDEX IF NOT EXISTS idx_social_sentiment_symbol_date ON fmp.social_sentiment(symbol, date);
