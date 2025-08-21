@@ -41,7 +41,7 @@ class FMPRateLimiter {
   private apiKey: string;
   
   constructor(apiKey?: string) {
-    this.apiKey = apiKey || process.env.FMP_API_KEY || 'afxb7fQ1Fv0cMF0T06gkBkWpqQQiWLEl';
+    this.apiKey = apiKey || process.env.FMP_API_KEY || '';
     
     // Conservative limits to stay well under 3000/minute
     this.config = {

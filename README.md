@@ -1,16 +1,31 @@
 # FMP Data System
 
-A comprehensive Financial Modeling Prep (FMP) data collection and management system with PostgreSQL integration.
+A comprehensive financial data management system that integrates with Financial Modeling Prep (FMP) API to collect, store, and manage financial market data in PostgreSQL.
 
 ## Features
 
-- Complete FMP API integration with rate limiting
-- PostgreSQL database for data storage
-- Batch data loading capabilities
-- Economic calendar data collection
-- Premium data endpoints support
-- Automatic schema creation and management
-- Comprehensive error handling and logging
+### Complete Data Coverage (79 Tables)
+- **Stock Market Data**: Prices, quotes, intraday, technical indicators
+- **Financial Statements**: Income, balance sheet, cash flow (quarterly/annual)
+- **Company Information**: Profiles, executives, ratings, peers
+- **Market Analytics**: Sector performance, market breadth, indexes
+- **Options Data**: Options chain, Greeks, flow analysis
+- **Alternative Data**: ESG scores, senate/house trading, M&A deals
+- **Economic Data**: GDP, inflation, treasury rates, economic calendar
+- **Commodities & Forex**: Real-time and historical prices
+- **Cryptocurrency**: Major crypto pairs tracking
+
+### Automated Updates
+- **Incremental Updates**: Hourly real-time data refresh
+- **Extended Updates**: Twice daily comprehensive updates
+- **Full Updates**: Weekly complete data synchronization
+- **Smart Scheduling**: Automatic update type selection based on time
+
+### Rate Limiting & Optimization
+- Respects FMP API limits (3000 requests/minute)
+- Intelligent batching and parallel processing
+- Automatic retry with exponential backoff
+- Comprehensive error handling
 
 ## Prerequisites
 
