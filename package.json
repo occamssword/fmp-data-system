@@ -1,0 +1,39 @@
+{
+  "name": "fmp-data-system",
+  "version": "1.0.0",
+  "description": "Financial Modeling Prep (FMP) data collection and management system with PostgreSQL integration",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "load-data": "node dist/scripts/load-all-fmp-data.js",
+    "load-batch": "node dist/scripts/fmp-batch-loader.js",
+    "load-premium": "node dist/scripts/load-fmp-premium-data.js",
+    "load-calendar": "node dist/scripts/load-economic-calendar.js",
+    "create-schema": "psql -U parthbhatt -d fmpdata -f sql/create-fmpdata-schema.sql",
+    "create-tables": "psql -U parthbhatt -d fmpdata -f sql/create-fmp-additional-tables.sql",
+    "setup-db": "npm run create-schema && npm run create-tables",
+    "test": "node dist/test/test-connection.js"
+  },
+  "keywords": [
+    "fmp",
+    "financial-data",
+    "postgresql",
+    "economic-data",
+    "api"
+  ],
+  "author": "Parth Bhatt",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.14.2",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "pg": "^8.11.5",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.6"
+  }
+}
