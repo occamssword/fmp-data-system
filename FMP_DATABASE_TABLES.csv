@@ -1,0 +1,78 @@
+Table Number,Table Name,Schema,Description,Primary Purpose,Data Source Endpoint,Update Frequency
+1,analyst_estimates,fmp,Analyst consensus estimates for companies,Store analyst predictions for earnings and revenue,/analyst-estimates,Daily
+2,balance_sheets,fmp,Company balance sheet statements,Financial position data including assets and liabilities,/balance-sheet-statement,Quarterly
+3,bankruptcies,fmp,Corporate bankruptcy filings and announcements,Track company bankruptcy events,/bankruptcies-rss-feed,Daily
+4,bond_prices,fmp,Historical bond price data,Bond trading prices and yields,/historical-price-full/bond,Daily
+5,bonds,fmp,Bond information and specifications,Bond details and characteristics,/bonds-list,Weekly
+6,cash_flow_statements,fmp,Company cash flow statements,Cash inflows and outflows from operations,/cash-flow-statement,Quarterly
+7,commodity_prices,fmp,Historical commodity price data,Commodity trading prices,/historical-price-full/commodity,Daily
+8,commodity_quotes,fmp,Real-time commodity quotes,Current commodity prices and changes,/quote/commodity,Real-time
+9,companies,fmp,Company profiles and basic information,Company metadata and descriptions,/profile,Daily
+10,company_outlook,fmp,Comprehensive company overview,Detailed company information and metrics,/company-outlook,Daily
+11,comparable_valuations,fmp,Peer company valuation comparisons,Comparative analysis metrics,/comparable-company-analysis,Daily
+12,cot_reports,fmp,Commitment of Traders reports,Futures market positioning data,/cot-report,Weekly
+13,crypto_prices,fmp,Historical cryptocurrency price data,Crypto trading history,/historical-price-full/crypto,Hourly
+14,crypto_quotes,fmp,Real-time cryptocurrency quotes,Current crypto prices and changes,/quote/crypto,Real-time
+15,dcf_models,fmp,Discounted cash flow valuation models,DCF analysis and fair value estimates,/discounted-cash-flow,Daily
+16,delistings,fmp,Stock delisting announcements,Track delisted securities,/delisted-companies,Daily
+17,dividend_calendar,fmp,Upcoming dividend payment dates,Dividend schedule tracking,/stock_dividend_calendar,Daily
+18,dividends,fmp,Historical dividend payment data,Dividend payment history,/historical-price-full/stock_dividend,Daily
+19,earnings_calendar,fmp,Upcoming earnings announcement dates,Earnings release schedule,/earning_calendar,Daily
+20,earnings_surprises,fmp,Earnings actual vs estimate data,Track earnings beats and misses,/earnings-surprises,Quarterly
+21,earnings_transcripts,fmp,Earnings call transcripts,Full text of earnings calls,/earning_call_transcript,Quarterly
+22,economic_calendar,fmp,Economic data release schedule,Economic indicator calendar,/economic_calendar,Daily
+23,economic_indicators,fmp,Key economic indicator values,GDP/CPI/unemployment data,/economic,Daily
+24,economic_indicators_detailed,fmp,Detailed economic metrics,Comprehensive economic data,/economic-indicator,Daily
+25,employee_count_history,fmp,Historical employee count data,Track workforce changes,/employee-count,Quarterly
+26,enterprise_values,fmp,Company enterprise value calculations,EV and related metrics,/enterprise-values,Daily
+27,esg_benchmarks,fmp,ESG benchmark scores by sector,Industry ESG comparisons,/esg-benchmarks,Monthly
+28,esg_scores,fmp,Environmental Social Governance scores,Company ESG ratings,/esg-environmental-social-governance-data,Monthly
+29,etf_country_weights,fmp,ETF geographic allocation,Country exposure percentages,/etf-country-weightings,Daily
+30,etf_holdings,fmp,ETF portfolio holdings,ETF constituent securities,/etf-holder,Daily
+31,etf_sector_weights,fmp,ETF sector allocation,Sector exposure percentages,/etf-sector-weightings,Daily
+32,executives,fmp,Company executive information,Management team details,/key-executives,Monthly
+33,financial_growth,fmp,Financial growth metrics,Revenue and earnings growth rates,/financial-growth,Quarterly
+34,financial_ratios,fmp,Financial ratio calculations,PE/PB/ROE and other ratios,/ratios,Daily
+35,forex_prices,fmp,Historical foreign exchange rates,Currency pair history,/historical-price-full/forex,Daily
+36,forex_quotes,fmp,Real-time forex quotes,Current exchange rates,/quote/forex,Real-time
+37,gdp_data,fmp,GDP data by country,Gross domestic product data,/gdp,Quarterly
+38,geographic_revenue,fmp,Revenue breakdown by geography,Geographic segment data,/revenue-geographic-segmentation,Quarterly
+39,government_contracts,fmp,Government contract awards,Federal contracting data,/government-contracts,Daily
+40,house_trading,fmp,House of Representatives trading activity,Congressional trades,/house-trading,Daily
+41,income_statements,fmp,Company income statements,Revenue and profit data,/income-statement,Quarterly
+42,index_prices,fmp,Stock market index values,Index historical data,/historical-price-full/index,Daily
+43,industry_performance,fmp,Industry sector performance metrics,Industry returns and metrics,/industry-performance,Daily
+44,inflation_data,fmp,Inflation rates by country,CPI and inflation metrics,/inflation,Monthly
+45,insider_trading,fmp,Insider transaction filings,Form 4 insider trades,/insider-trading,Daily
+46,institutional_holders,fmp,Institutional ownership data,13F holdings data,/institutional-holder,Quarterly
+47,intraday_prices,fmp,Intraday price data,Minute-level price data,/historical-chart/1min,Real-time
+48,ipo_calendar,fmp,Initial public offering schedule,Upcoming IPO dates,/ipo_calendar,Daily
+49,key_metrics,fmp,Key financial metrics,Important financial KPIs,/key-metrics,Daily
+50,lobbying_data,fmp,Corporate lobbying expenditures,Lobbying disclosure data,/lobbying,Quarterly
+51,ma_deals,fmp,Mergers and acquisitions transactions,M&A deal information,/mergers-acquisitions,Daily
+52,market_breadth,fmp,Market breadth indicators,Advance/decline data,/market-breadth,Daily
+53,market_holidays,fmp,Stock market holiday schedule,Trading calendar,/market-hours,Yearly
+54,market_hours,fmp,Market trading hours,Exchange operating hours,/market-hours,Static
+55,market_indexes,fmp,Global market index list,Index definitions,/indexes,Static
+56,news,fmp,Financial news articles,Company and market news,/stock_news,Real-time
+57,news_enhanced,fmp,Enhanced news with sentiment analysis,News with NLP analysis,/stock-news-sentiments,Real-time
+58,options_chain,fmp,Options contract chains,Available options contracts,/option-chain,Daily
+59,options_flow,fmp,Options order flow data,Large options trades,/options-flow,Real-time
+60,options_greeks,fmp,Options Greeks calculations,Delta/gamma/theta values,/option-greeks,Daily
+61,press_releases,fmp,Company press releases,Official announcements,/press-releases,Daily
+62,price_targets,fmp,Analyst price targets,Stock price predictions,/price-target,Daily
+63,real_time_quotes,fmp,Real-time stock quotes,Live price data,/quote,Real-time
+64,revenue_segments,fmp,Revenue by business segment,Segment breakdown,/revenue-product-segmentation,Quarterly
+65,screener_results,fmp,Stock screener results,Filtered stock lists,/stock-screener,Daily
+66,sec_filings,fmp,SEC filing documents,Regulatory filings,/sec_filings,Daily
+67,sector_performance,fmp,Market sector performance,Sector returns data,/sector-performance,Daily
+68,senate_trading,fmp,Senate member trading activity,Senate financial disclosures,/senate-trading,Daily
+69,social_sentiment,fmp,Social media sentiment scores,Twitter/Reddit sentiment,/social-sentiment,Hourly
+70,split_calendar,fmp,Stock split announcements,Upcoming splits schedule,/stock_split_calendar,Daily
+71,stock_grades,fmp,Analyst stock ratings,Buy/sell recommendations,/grade,Daily
+72,stock_peers,fmp,Peer company lists,Competitor identification,/stock_peers,Monthly
+73,stock_prices,fmp,Historical stock price data,OHLCV price history,/historical-price-full,Daily
+74,stock_splits,fmp,Historical stock split data,Split history records,/historical-price-full/stock_split,Daily
+75,symbols_list,fmp,Complete symbol directory,All tradeable symbols,/stock/list,Daily
+76,technical_indicators,fmp,Technical analysis indicators,SMA/EMA/RSI/MACD data,/technical_indicator,Daily
+77,treasury_rates,fmp,US Treasury yield rates,Government bond yields,/treasury,Daily

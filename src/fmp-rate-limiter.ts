@@ -244,7 +244,7 @@ class FMPRateLimiter {
  * FMP Data Loader with Rate Limiting
  */
 export class FMPDataLoader {
-  private rateLimiter: FMPRateLimiter;
+  public rateLimiter: FMPRateLimiter;
   private pool: Pool;
   
   constructor(pool?: Pool) {
