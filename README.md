@@ -1,10 +1,18 @@
 # FMP Data System
 
-A comprehensive financial data management system that integrates with Financial Modeling Prep (FMP) API to collect, store, and manage financial market data in PostgreSQL.
+A production-ready financial data platform with real-time monitoring that collects, stores, and manages data from the Financial Modeling Prep (FMP) API.
+
+## 🚀 System Highlights
+
+- **94 Database Tables** with 100% FMP API coverage
+- **Real-time Monitoring Dashboard** at http://localhost:3001
+- **103,000+ Records** loaded and growing
+- **Automated Updates** via cron scheduling
+- **Production Ready** with Docker support
 
 ## Features
 
-### Complete Data Coverage (79 Tables)
+### Complete Data Coverage (94 Tables)
 - **Stock Market Data**: Prices, quotes, intraday, technical indicators
 - **Financial Statements**: Income, balance sheet, cash flow (quarterly/annual)
 - **Company Information**: Profiles, executives, ratings, peers
@@ -15,17 +23,25 @@ A comprehensive financial data management system that integrates with Financial 
 - **Commodities & Forex**: Real-time and historical prices
 - **Cryptocurrency**: Major crypto pairs tracking
 
+### Real-time Monitoring Dashboard
+- **Web Interface**: Beautiful dashboard at http://localhost:3001
+- **Live Metrics**: Real-time API usage and system health
+- **Log Streaming**: Live log viewer with WebSocket support
+- **System Status**: Comprehensive health checks and alerts
+- **API Endpoints**: RESTful API for programmatic access
+
 ### Automated Updates
 - **Incremental Updates**: Hourly real-time data refresh
 - **Extended Updates**: Twice daily comprehensive updates
 - **Full Updates**: Weekly complete data synchronization
 - **Smart Scheduling**: Automatic update type selection based on time
 
-### Rate Limiting & Optimization
-- Respects FMP API limits (3000 requests/minute)
-- Intelligent batching and parallel processing
-- Automatic retry with exponential backoff
-- Comprehensive error handling
+### Production Features
+- **Rate Limiting**: Intelligent API usage with 2800 req/min safety buffer
+- **Error Recovery**: Automatic retry with exponential backoff
+- **Circuit Breakers**: Prevent cascading failures
+- **Health Monitoring**: Continuous system health checks
+- **Docker Support**: Full containerization with docker-compose
 
 ## Prerequisites
 
@@ -33,7 +49,9 @@ A comprehensive financial data management system that integrates with Financial 
 - PostgreSQL 14+
 - FMP API key (get from https://financialmodelingprep.com/)
 
-## Installation
+## Quick Start
+
+### Installation
 
 1. Clone the repository:
 ```bash
@@ -46,7 +64,28 @@ cd fmp-data-system
 npm install
 ```
 
-3. Set up environment variables:
+3. Deploy the system:
+```bash
+# Quick deployment
+./scripts/deploy-system.sh
+```
+
+### Start Monitoring Dashboard
+
+```bash
+# Start monitoring server
+./scripts/start-monitoring.sh
+
+# View dashboard in browser
+open http://localhost:3001
+
+# Check system status
+./scripts/system-status.sh
+```
+
+### Manual Setup
+
+1. Set up environment variables:
 ```bash
 cp .env.example .env
 # Edit .env with your FMP API key and database credentials

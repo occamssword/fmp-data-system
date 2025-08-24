@@ -4,30 +4,33 @@
 
 The FMP Data System is a production-ready financial data platform that:
 - Collects data from 100% of Financial Modeling Prep API endpoints
-- Stores data in PostgreSQL with 77 optimized tables
+- Stores data in PostgreSQL with 94 optimized tables
+- Provides real-time monitoring dashboard with WebSocket support
 - Implements enterprise-grade error handling and monitoring
 - Provides automated data updates with intelligent scheduling
-- Includes health monitoring and alerting capabilities
+- Includes comprehensive health monitoring and alerting
 
 ## Production Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     Load Balancer                       │
+│              Monitoring Dashboard (:3001)               │
+│                 http://localhost:3001                   │
 └─────────────────────────────────────────────────────────┘
                               │
         ┌─────────────────────┴─────────────────────┐
         │                                           │
 ┌───────▼────────┐                       ┌─────────▼────────┐
 │  FMP Loaders   │                       │ Health Monitor   │
-│  (Incremental) │                       │   (Metrics)      │
+│  (Incremental) │                       │   (WebSocket)    │
 └───────┬────────┘                       └─────────┬────────┘
         │                                           │
         └─────────────────┬─────────────────────────┘
                           │
                 ┌─────────▼──────────┐
                 │    PostgreSQL      │
-                │   (77 Tables)      │
+                │   (94 Tables)      │
+                │  (103K+ Records)   │
                 └─────────┬──────────┘
                           │
                 ┌─────────▼──────────┐
